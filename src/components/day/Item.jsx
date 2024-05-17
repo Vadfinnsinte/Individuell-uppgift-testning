@@ -4,16 +4,16 @@ const Item = ({ item }) => {
 	if( item.late ) itemClass += 'due'
 
 	const handleChange = () => { /* TODO */ }
-
 	return (
 		<div className="item">
+		
 			<input type="checkbox" checked={item.done} onChange={handleChange} />
 			<label className={itemClass} onClick={handleChange}>
 				{item.text}
 			</label>
 			{/* <span title="Snooza">💤</span> */}
 			<span title="Ändra">✍️</span>
-			<span title="Ta bort">🗑️</span>
+			<span data-cy="delete-icon"  title="Ta bort">🗑️</span>
 		</div>
 	)
 }

@@ -11,10 +11,9 @@ const Main = () => {
 	return (
 		<main>
 			<div className="day-view">
-				{days.map(d => (
+				{days.map((d, dayIndex)=> (
 					<>
-					{console.log(d)}
-					<Day day={d} key={1 /* TODO kom på något sätt att ge varje dag en unik "key" */} />
+					<Day day={d} dayIndex={dayIndex} key={d.day /* TODO kom på något sätt att ge varje dag en unik "key" */} />
 					</>
 				))}
 			</div>
