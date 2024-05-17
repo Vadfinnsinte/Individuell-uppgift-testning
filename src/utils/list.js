@@ -1,11 +1,13 @@
 
 // TODO: write unit tests for this function, and finish it
 function splitTodosIntoDays(todos) {
-	const mo = todos.filter(t => t.day === 'mo')
-	const ti = todos.filter(t => t.day === 'ti')
-	const on = todos.filter(t => t.day === 'on')
+	const mo = todos.filter(t => t.day === 'måndag')
+	const ti = todos.filter(t => t.day === 'tisdag')
+	const on = todos.filter(t => t.day === 'onsdag')
+	const tor = todos.filter(t => t.day === 'torsdag')
+	const fre = todos.filter(t => t.day === 'fredag')
 
-	return [mo, ti, on]
+	return [mo, ti, on, tor, fre]
 }
 
 // Tips! Du kan få användning för funktioner som:

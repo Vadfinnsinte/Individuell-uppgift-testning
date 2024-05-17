@@ -12,7 +12,10 @@ const Main = () => {
 		<main>
 			<div className="day-view">
 				{days.map(d => (
+					<>
+					{console.log(d)}
 					<Day day={d} key={1 /* TODO kom på något sätt att ge varje dag en unik "key" */} />
+					</>
 				))}
 			</div>
 
