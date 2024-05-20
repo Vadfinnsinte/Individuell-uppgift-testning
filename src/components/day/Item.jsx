@@ -4,6 +4,10 @@ const Item = ({ item }) => {
 	if( item.late ) itemClass += 'due'
 
 	const handleChange = () => { /* TODO */ }
+
+	const handleDelete = () => {
+	}
+	
 	return (
 		<div className="item">
 		
@@ -13,7 +17,7 @@ const Item = ({ item }) => {
 			</label>
 			{/* <span title="Snooza">💤</span> */}
 			<span title="Ändra">✍️</span>
-			<span data-cy="delete-icon"  title="Ta bort">🗑️</span>
+			<span data-cy="delete-icon"  title="Ta bort" onClick={() => handleDelete(item)}>🗑️</span>
 		</div>
 	)
 }

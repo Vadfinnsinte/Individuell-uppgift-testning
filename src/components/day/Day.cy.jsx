@@ -15,10 +15,9 @@ import Day from "./Day.jsx"
 describe("<Day/>", () => {
     let days
     let weekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag"]
-    beforeEach(() => {
-        const todos = useStore.getState().todos
-        days = splitTodosIntoDays(todos)
-    })
+    const todos = useStore.getState().todos
+    days = splitTodosIntoDays(todos)
+
     
     it("should show a card for days monday through friday", () => {
         days.forEach((day, index) => {
@@ -26,7 +25,7 @@ describe("<Day/>", () => {
             cy.get('[data-cy="weekday-header"]').invoke("text").then((text) => {
                 cy.log("text: ", text)
                let weekday = weekdays[index].toLocaleLowerCase()
-               text = text.trim()
+               text = text.trim().toLocaleLowerCase()
                 expect(weekday).to.equal(text)
             })
        

@@ -13,20 +13,14 @@ const Day = ({ day, dayIndex }) => {
 	
 			
 			<h2 data-cy="weekday-header"> {dayName[dayIndex]} </h2>
-			{console.log(dayName[dayIndex])}
-
-	
 			
 				{day.map((item)=> (
 					<div>
 						
-				
 					<Item key={item.id} item={item}/>
 					
 					</div>
 				))
-			
-			
 			
 		}
 			  
