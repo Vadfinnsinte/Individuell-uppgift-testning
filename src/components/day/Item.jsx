@@ -29,8 +29,8 @@ const Item = ({ item }) => {
 	return (
 		<div className="item">
 		
-			<input type="checkbox" checked={item.done} onChange={handleChange} />
-			{ !edit ? ( <label className={itemClass} onClick={handleChange}>
+			<input type="checkbox" checked={item.done}  />
+			{ !edit ? ( <label className={itemClass}>
 				{item.text}
 			</label> 
 			) : ( 

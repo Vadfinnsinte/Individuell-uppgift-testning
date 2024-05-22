@@ -9,7 +9,7 @@ const Day = ({ day, dayIndex }) => {
 	const dayName = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"]
 	
 	return (
-		<div className="day">
+		<div data-cy="day" className="day">
 	
 			
 			<h2 data-cy="weekday-header"> {dayName[dayIndex]} </h2>
