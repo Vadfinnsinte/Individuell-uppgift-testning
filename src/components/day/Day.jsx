@@ -6,7 +6,7 @@ import Item from "./Item"
 
 const Day = ({ day, dayIndex }) => {
 	// TODO: implement rest of week
-	const dayName = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag"]
+	const dayName = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"]
 	
 	return (
 		<div className="day">

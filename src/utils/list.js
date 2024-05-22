@@ -6,8 +6,10 @@ function splitTodosIntoDays(todos) {
 	const on = todos.filter(t => t.day === 'onsdag')
 	const tor = todos.filter(t => t.day === 'torsdag')
 	const fre = todos.filter(t => t.day === 'fredag')
+	const lör = todos.filter(t => t.day === 'lördag')
+	const sön = todos.filter(t => t.day === 'söndag')
 
-	return [mo, ti, on, tor, fre]
+	return [mo, ti, on, tor, fre, lör, sön]
 }
 
 // Tips! Du kan få användning för funktioner som:

@@ -1,23 +1,50 @@
+
+import { useState } from "react"
+import { useStore } from "../../data/store"
+import { splitTodosIntoDays } from "../../utils/list"
+
 const Item = ({ item }) => {
+	const [edit, setEdit] = useState(false)
 	let itemClass = ''
 	if( item.done ) itemClass += 'done'
 	if( item.late ) itemClass += 'due'
 
-	const handleChange = () => { /* TODO */ }
+	const deleteTodo = useStore(state => state.deleteTodo);
+	const uppdateTodo = useStore(state => state.uppdateTodo);
 
-	const handleDelete = () => {
+	const handleChange = () => {
+		setEdit(true)
 	}
-	
+
+	const handleDelete = (id) => {
+	 	deleteTodo(id)
+	}
+	const handleSave = () => {
+		setEdit(false)
+	}
+	const handleInput = (id, e) => {
+		uppdateTodo(id,e )
+	}
+
 	return (
 		<div className="item">
 		
 			<input type="checkbox" checked={item.done} onChange={handleChange} />
-			<label className={itemClass} onClick={handleChange}>
+			{ !edit ? ( <label className={itemClass} onClick={handleChange}>
 				{item.text}
-			</label>
+			</label> 
+			) : ( 
+			<input type="text" data-cy="input-field" onChange={(id, e) => handleInput(item.id, event.target.value)} />
+			
+			)}
 			{/* <span title="Snooza">💤</span> */}
-			<span title="Ändra">✍️</span>
-			<span data-cy="delete-icon"  title="Ta bort" onClick={() => handleDelete(item)}>🗑️</span>
+			{ !edit ? (
+                <span title="Ändra" data-cy="edit-icon" onClick={handleChange}>✍️</span>
+            ) : (
+                <span data-cy="save-icon" onClick={handleSave}>💾</span>
+            )}
+			
+			<span data-cy="delete-icon"  title="Ta bort" onClick={() => handleDelete(item.id)}>🗑️</span>
 		</div>
 	)
 }
