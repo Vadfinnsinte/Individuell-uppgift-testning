@@ -37,7 +37,7 @@ const useStore = create(set => ({
 	}))
 
 
-	// TODO: lägg till en funktion "setTodos" så att du kan ändra innehållet i store från dina testfiler
+	
 
 }))
 
