@@ -7,7 +7,7 @@ const Footer = () => {
 
  return (
 	<footer>
-		<p> Idag är det: {today} </p>
+		<p data-cy="today" > Idag är det: {today} </p>
 		<p> Studieguide | 2024 </p>
 	</footer>
 

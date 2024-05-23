@@ -9,7 +9,8 @@ const useStore = create(set => ({
 	setTodos: newTodo => set({ todos: newTodo }),
 
 	todayName: getToday(),
-	// TODO: du behöver en funktion setTodayName för att kunna testa appen med olika veckodagar
+
+	setTodayName: newDay => set({ todayName: newDay }),
 
 
 	toggleTodo: id => set(state => ({
@@ -18,7 +19,12 @@ const useStore = create(set => ({
 		)
 	  })),
 
-	resetTodos: () => set(state => ({ todos: [] })),
+	// resetTodos: () => set(state => ({ todos: [] })),
+	resetTodos: () => set(state => ({ todos: state.todos.map(todo => ({
+        ...todo,
+        done: false
+    }))
+})),
 
 	deleteTodo: id => set(state => ({
         todos: state.todos.filter(t => t.id !== id)
@@ -28,8 +34,6 @@ const useStore = create(set => ({
 		todos: state.todos.map(todo => todo.id === id ? {...todo, text: newText} : todo )
 	}))
 
-
-	
 
 }))
 

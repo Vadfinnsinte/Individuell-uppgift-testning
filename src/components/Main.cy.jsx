@@ -15,14 +15,10 @@ import Main from "./Main"
 
 describe("<Main/>", () => {
     let weekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"]
-    it("should show days monday throuh sunday", () => {
+    it("should show days monday throuh sunday #1", () => {
         cy.mount(<Main/> )
-        cy.get("[data-cy='weekday-header']").contains(weekdays[0]).should("be.visible")
-        cy.get("[data-cy='weekday-header']").contains(weekdays[1]).should("be.visible")
-        cy.get("[data-cy='weekday-header']").contains(weekdays[2]).should("be.visible")
-        cy.get("[data-cy='weekday-header']").contains(weekdays[3]).should("be.visible")
-        cy.get("[data-cy='weekday-header']").contains(weekdays[4]).should("be.visible")
-        cy.get("[data-cy='weekday-header']").contains(weekdays[5]).should("be.visible")
-        cy.get("[data-cy='weekday-header']").contains(weekdays[6]).should("be.visible")
+        weekdays.forEach(day => {
+            cy.get("[data-cy='weekday-header']").contains(day).should("be.visible")
+          })
     })
 })

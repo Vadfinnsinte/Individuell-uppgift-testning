@@ -4,12 +4,15 @@
 4B. det ska visas element som matchar den sökta texten
 5. Som en student vill jag kunna se en sammanställning av totala antalet todos och hur många som inte är klara, så att jag får en överblick över min produktivitet. (Ex.: "15/20 klara")
 5A. En text i vad ska jag göra nu som visar hur många todos som är gjorda. 
-6. Som en student vill jag kunna se en sammanställning av totala antalet todos och hur många som inte är klara, så att jag får en överblick över min produktivitet. (Ex.: "15/20 klara")
+#6. Som en student vill jag kunna se en sammanställning av totala antalet todos och hur många som inte är klara, så att jag får en överblick över min produktivitet. (Ex.: "15/20 klara")
 */
 
-describe("???", () => {
-    it("should check an todo, then uncheck an todo then search for the added todo. Shoud show how many is done(1/2) #4 & #5", () => {
+describe("User stories #4, #5 och #6", () => {
+    beforeEach(() => {
         cy.visit("/") 
+    })
+    
+    it("should check an todo, then uncheck an todo then search for the added todo. Shoud show how many is done(1/2) #4 & #5", () => {
         let inputValue = "Göra klart"
         cy.get('[data-cy="checkbox"]').last().click()
         cy.get('[data-cy="checkbox"]').last().should("be.checked")
@@ -27,8 +30,13 @@ describe("???", () => {
             })
         })
     })
-    it("Sholud uncheck all the checkboxes when 'starta om vecka'-knappen klickas på", () => {
+    it("Sholud uncheck all the checkboxes when 'starta om vecka'-knappen klickas på #6", () => {
         cy.get('[data-cy="redo-week-btn"]').click()
-        cy.get("[data-cy='items']")
+        cy.get('[data-cy="checkbox"]').then($checkboxes => {
+            let checkedBoxes = $checkboxes.filter(':checked')
+            checkedBoxes = checkedBoxes.length
+            expect(checkedBoxes).to.equal(0)
+        })
+        
     })
 })

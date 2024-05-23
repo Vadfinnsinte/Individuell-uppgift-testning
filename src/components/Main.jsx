@@ -10,11 +10,9 @@ const Main = () => {
 
 	return (
 		<main>
-			<div  className="day-view">
+			<div className="day-view">
 				{days.map((d, dayIndex)=> (
-					<>
 					<Day day={d} key={dayIndex} dayIndex={dayIndex} />
-					</>
 				))}
 			</div>
 
