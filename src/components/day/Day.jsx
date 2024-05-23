@@ -9,13 +9,13 @@ const Day = ({ day, dayIndex }) => {
 	const dayName = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"]
 	
 	return (
-		<div key={day.id} data-cy="day" className="day">
+		<div data-cy="day" className="day">
 	
 			
 			<h2 data-cy="weekday-header"> {dayName[dayIndex]} </h2>
 			
 				{day.map((item)=> (
-					<div>
+					<div key={item.id}>
 						
 					<Item key={item.id} item={item}/>
 					

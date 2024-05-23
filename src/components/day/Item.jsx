@@ -11,30 +11,34 @@ const Item = ({ item }) => {
 
 	const deleteTodo = useStore(state => state.deleteTodo);
 	const uppdateTodo = useStore(state => state.uppdateTodo);
+	const toggleTodo = useStore(state => state.toggleTodo)
 
 	const handleChange = () => {
 		setEdit(true)
 	}
 
-	const handleDelete = (id) => {
-	 	deleteTodo(id)
+	const handleDelete = () => {
+	 	deleteTodo(item.id)
 	}
 	const handleSave = () => {
 		setEdit(false)
 	}
 	const handleInput = (id, e) => {
-		uppdateTodo(id,e )
+		uppdateTodo(item.id,e )
+	}
+	const handleCheckbox = (id) => {
+		toggleTodo(id)
 	}
 
 	return (
-		<div className="item">
+		<div className="item" data-cy='items'>
 		
-			<input type="checkbox" checked={item.done}  />
+			<input data-cy="checkbox" type="checkbox" checked={item.done} onChange={() => handleCheckbox(item.id)} />
 			{ !edit ? ( <label className={itemClass}>
 				{item.text}
 			</label> 
 			) : ( 
-			<input type="text" data-cy="input-field" onChange={(id, e) => handleInput(item.id, event.target.value)} />
+			<input type="text" data-cy="input-field" onChange={( e) => handleInput(item.id, event.target.value)} />
 			
 			)}
 			{/* <span title="Snooza">💤</span> */}
@@ -44,7 +48,7 @@ const Item = ({ item }) => {
                 <span data-cy="save-icon" onClick={handleSave}>💾</span>
             )}
 			
-			<span data-cy="delete-icon"  title="Ta bort" onClick={() => handleDelete(item.id)}>🗑️</span>
+			<span data-cy="delete-icon"  title="Ta bort" onClick={() => handleDelete()}>🗑️</span>
 		</div>
 	)
 }

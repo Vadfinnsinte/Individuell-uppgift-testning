@@ -60,6 +60,12 @@ it("should have an input-field after pressing edit-icon, when typing it should s
     // att den uppdaterar elementet testas i E2E testerna
     
 })
+it("should toggle the checkboxes when clicked", () => {
+    cy.mount(<Item item={testData[2]} key={testData[2].id} />)
+    cy.get('[data-cy="checkbox"]').check()
+    cy.get('[data-cy="checkbox"]').should("be.checked")
+})
+
 
 })
 

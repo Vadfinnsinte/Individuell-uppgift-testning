@@ -10,10 +10,10 @@ const Main = () => {
 
 	return (
 		<main>
-			<div className="day-view">
+			<div  className="day-view">
 				{days.map((d, dayIndex)=> (
 					<>
-					<Day day={d} dayIndex={dayIndex} key={d.id /* TODO kom på något sätt att ge varje dag en unik "key" */} />
+					<Day day={d} key={dayIndex} dayIndex={dayIndex} />
 					</>
 				))}
 			</div>
