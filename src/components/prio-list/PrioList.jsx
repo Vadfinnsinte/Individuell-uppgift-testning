@@ -11,7 +11,8 @@ const PrioList = () => {
 		item.text.toLowerCase().includes(searchTerm.toLowerCase())
 	  );
 
-	  let done =  todos.length - items.length
+	let done =  todos.length - items.length
+	
 	return (
 
 		<div className="prio-list">
