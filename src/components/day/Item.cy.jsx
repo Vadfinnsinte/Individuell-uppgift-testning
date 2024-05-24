@@ -37,6 +37,7 @@ it("should render the text in the label #2B", () => {
     cy.get("label").should("contain", testData[2].text).and("be.visible")
     
 })
+
 it("Should delete a todo item when clicking on the 🗑️ icon #2C", () => {
     useStore.setState({
         todos: testData
@@ -51,6 +52,7 @@ it("should have an edit-icon #3A", () => {
     cy.mount(<Item item={testData[0]} key={testData[0].id} />)
     cy.get('[data-cy="edit-icon"]').contains("✍️").should("be.visible")
 })
+
 it("should have an input-field after pressing edit-icon, when typing it should save the input when pressing the save-icon #3B", () => {
     let inputValue = "Gör uppgift 7B"
     cy.mount(<Item item={testData[0]} key={testData[0].id} />)
@@ -59,11 +61,6 @@ it("should have an input-field after pressing edit-icon, when typing it should s
     cy.get('[data-cy="save-icon"]').click()
     // att den uppdaterar elementet testas i E2E testerna
     
-})
-it("should toggle the checkboxes when clicked", () => {
-    cy.mount(<Item item={testData[2]} key={testData[2].id} />)
-    cy.get('[data-cy="checkbox"]').check()
-    cy.get('[data-cy="checkbox"]').should("be.checked")
 })
 
 

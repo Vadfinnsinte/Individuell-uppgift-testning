@@ -17,6 +17,6 @@ const Header = () => {
 export default Header
 
 
-//vad Begöver man setTodayName för? -- Testa footer!!! 
+
 
 

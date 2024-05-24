@@ -4,7 +4,7 @@ import { getToday } from "../utils/date.js";
 
 
 const useStore = create(set => ({
-	todos: todos,  // TODO: "todos" är data som du kan använda under utvecklingen - byt ut den mot din egen testdata
+	todos: todos, 
 
 	setTodos: newTodo => set({ todos: newTodo }),
 
@@ -19,7 +19,7 @@ const useStore = create(set => ({
 		)
 	  })),
 
-	// resetTodos: () => set(state => ({ todos: [] })),
+	
 	resetTodos: () => set(state => ({ todos: state.todos.map(todo => ({
         ...todo,
         done: false
@@ -32,6 +32,10 @@ const useStore = create(set => ({
 
 	uppdateTodo: (id, newText )=> set(state => ({
 		todos: state.todos.map(todo => todo.id === id ? {...todo, text: newText} : todo )
+	})),
+
+	addTodo: (newTodo) => set(state => ({
+		todos: [...state.todos, newTodo]
 	}))
 
 

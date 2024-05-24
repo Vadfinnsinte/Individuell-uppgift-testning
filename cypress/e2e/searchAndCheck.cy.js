@@ -2,8 +2,10 @@
 #4. Som en student vill jag kunna söka efter todo items som innehåller en viss text, så att jag lätt kan se om en viss sak finns med i priolistan.
 4A. Det ska finnas ett inputfält, där man kan skriva text
 4B. det ska visas element som matchar den sökta texten
+
 5. Som en student vill jag kunna se en sammanställning av totala antalet todos och hur många som inte är klara, så att jag får en överblick över min produktivitet. (Ex.: "15/20 klara")
 5A. En text i vad ska jag göra nu som visar hur många todos som är gjorda. 
+
 #6. Som en student vill jag kunna se en sammanställning av totala antalet todos och hur många som inte är klara, så att jag får en överblick över min produktivitet. (Ex.: "15/20 klara")
 */
 

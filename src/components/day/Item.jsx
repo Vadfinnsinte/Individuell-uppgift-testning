@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 import { useStore } from "../../data/store"
-import { splitTodosIntoDays } from "../../utils/list"
+
 
 const Item = ({ item }) => {
 	const [edit, setEdit] = useState(false)

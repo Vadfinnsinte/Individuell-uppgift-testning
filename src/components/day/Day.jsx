@@ -1,12 +1,31 @@
+import { useState } from "react"
 import Item from "./Item"
-
-// OBS, det är tillåtet att lägga till flera props
-// När du testar, rendera komponenten med olika värden på props
-
+import { useStore } from "../../data/store"
 
 const Day = ({ day, dayIndex }) => {
-	// TODO: implement rest of week
+	
+	const addTodo = useStore(state => state.addTodo)
 	const dayName = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"]
+	const [isEdeting, setIsEdeting] = useState(false)
+	const [inputValue, setInputValue] = useState("")
+
+	const handleSave = () => {
+		if (isEdeting && inputValue.trim() !== "") {
+			setIsEdeting(false)
+			let newTodo = {
+				id: Date.now(),
+				day: dayName[dayIndex].toLowerCase(),
+				done: false,
+				late: false, 
+				text: inputValue
+			}
+			
+			addTodo(newTodo)
+			setInputValue("")
+		}else {
+			setIsEdeting(true)
+		}
+	}
 
 	return (
 		<div data-cy="day" className="day">
@@ -26,7 +45,8 @@ const Day = ({ day, dayIndex }) => {
 			  
 
 			<div className="controls">
-				<button> Ny uppgift </button>
+				{isEdeting && <input data-cy="add-input" type="text" onChange={(e) => setInputValue(e.target.value)} /> }
+				{<button data-cy="add-btn" onClick={handleSave} > {isEdeting ? 'Spara' : 'Ny uppgift'} </button>}
 			</div>
 		</div>
 	)

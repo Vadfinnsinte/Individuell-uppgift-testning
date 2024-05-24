@@ -1,7 +1,7 @@
 import PrioItem from "./PrioItem"
 import { useStore } from '../../data/store.js'
-import { useState, useEffect } from "react"
-import { todos } from "../../data/data.js"
+import { useState } from "react"
+
 const PrioList = () => {
 	
 	const [searchTerm, setSearchTerm] = useState('');

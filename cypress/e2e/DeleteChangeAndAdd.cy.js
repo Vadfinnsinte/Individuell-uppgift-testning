@@ -11,8 +11,8 @@
 */
 
 
-describe(" TODO - Delete and change stories #2 & #3 ", () => {
-    it("loads page, deletes a todo-item and changes another todo-item", () => {
+describe(" Delete, change and add.  #2 & #3 ", () => {
+    it("loads page, deletes a todo-item and changes another todo-item, then adds a new one", () => {
         cy.visit("/")
         // plocka ut längden på delete-icon
         cy.get("[data-cy='delete-icon']").then($icons => {
@@ -25,11 +25,18 @@ describe(" TODO - Delete and change stories #2 & #3 ", () => {
             cy.get('[data-cy="delete-icon"]').should("have.length", initialLength - 1);
         });
 
-        let inputValue = "Gör uppgift 7B"
+        const inputValue = "Gör uppgift 7B"
         cy.get('[data-cy="edit-icon"]').first().click()
         
         cy.get('[data-cy="input-field"]').type(inputValue)
         cy.get('[data-cy="save-icon"]').click()
         cy.get('label').first().contains(inputValue).should("be.visible")
+
+        const addInput = "Jobba på porfolio sida"
+        cy.get('[data-cy="add-btn"]').first().click()
+        cy.get('[data-cy="add-input"]').type(addInput)
+        cy.get('[data-cy="add-btn"]').first().click()
+        cy.get('[data-cy="items"]').first().contains(addInput).should("be.visible")       
+
     })
 })

@@ -3,14 +3,17 @@
 6A. Kolla att knappen finns och kan klickas. 
 6B. Kolla att alla chekboxar är ocheckade. (Kolla att variablerna ändrasts i store)
 */
+
 import Header from "./Header"
 import { useStore } from "../data/store"
+
 
 describe("Tests userStorie #6", () => {
     let testData = [ { id: 1, day: 'måndag', done: true, late: false, text: 'Göra klart inlämning' },
     { id: 2, day: 'tisdag', done: true, late: false, text: 'Lektion i skolan 9-16' },
     { id: 3, day: 'tisdag', done: false, late: true, text: 'Övning 1' },
     { id: 4, day: 'onsdag', done: false, late: false, text: 'Repetera lektionen' }]
+
     it("Should have a button, when clicked it should changel done: true till false", () => {
         useStore.setState({todos: testData })
         cy.mount(<Header /> )
